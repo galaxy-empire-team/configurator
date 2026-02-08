@@ -23,17 +23,26 @@ func (c *Configurator) Run(ctx context.Context) error {
 		return fmt.Errorf("json.Unmarshal(): %w", err)
 	}
 
-	err = c.upsertConfig(ctx, gameConfig)
+	err = c.upsertBuildings(ctx, gameConfig)
 	if err != nil {
-		return fmt.Errorf("upsertConfig(): %w", err)
+		return fmt.Errorf("upsertBuildings(): %w", err)
 	}
+
+	c.logger.Info("Buildings upserted successfully")
+
+	err = c.upsertFleet(ctx, gameConfig)
+	if err != nil {
+		return fmt.Errorf("upsertFleet(): %w", err)
+	}
+
+	c.logger.Info("Fleet upserted successfully")
 
 	c.logger.Info("Configurator finished")
 
 	return nil
 }
 
-func (c *Configurator) upsertConfig(ctx context.Context, cfg GameConfig) (err error) {
+func (c *Configurator) upsertBuildings(ctx context.Context, cfg GameConfig) (err error) {
 	const upsertQuery = `
 		INSERT INTO session_beta.buildings (
 			building_type,
@@ -81,6 +90,69 @@ func (c *Configurator) upsertConfig(ctx context.Context, cfg GameConfig) (err er
 			building.ProductionPerSecond,
 			bonusesJSON,
 			building.UpgradeTimeSeconds,
+		)
+	}
+
+	br := c.db.SendBatch(ctx, batch)
+	defer br.Close()
+
+	for i := range batch.Len() {
+		_, err := br.Exec()
+		if err != nil {
+			return fmt.Errorf("br.Exec(idx: %d): %w", i, err)
+		}
+	}
+
+	return nil
+}
+
+func (c *Configurator) upsertFleet(ctx context.Context, cfg GameConfig) (err error) {
+	const upsertFleetQuery = `
+		INSERT INTO session_beta.fleet (
+			ship_type,
+			attack, 
+			defense,
+			speed,
+			cargo_capacity,
+			metal_cost,
+			crystal_cost,
+			gas_cost, 
+			build_time_s
+		) VALUES (
+		 	$1,        --- ship_type
+			$2,        --- attack
+			$3,        --- defense
+			$4,        --- speed
+			$5,        --- cargo_capacity
+			$6,        --- metal_cost
+			$7,        --- crystal_cost
+			$8,        --- gas_cost
+			$9         --- build_time_s
+		)
+		ON CONFLICT (ship_type) DO UPDATE SET
+			attack = EXCLUDED.attack,
+			defense = EXCLUDED.defense,
+			speed = EXCLUDED.speed,
+			cargo_capacity = EXCLUDED.cargo_capacity,
+			metal_cost = EXCLUDED.metal_cost,
+			crystal_cost = EXCLUDED.crystal_cost,
+			gas_cost = EXCLUDED.gas_cost,
+			build_time_s = EXCLUDED.build_time_s;	
+	`
+
+	batch := &pgx.Batch{}
+
+	for _, fleetUnit := range cfg.Fleet {
+		batch.Queue(upsertFleetQuery,
+			fleetUnit.Type,
+			fleetUnit.Attack,
+			fleetUnit.Defense,
+			fleetUnit.Speed,
+			fleetUnit.CargoCapacity,
+			fleetUnit.BuildCost.Metal,
+			fleetUnit.BuildCost.Crystal,
+			fleetUnit.BuildCost.Gas,
+			fleetUnit.BuildTimeSeconds,
 		)
 	}
 

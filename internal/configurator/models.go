@@ -10,7 +10,8 @@ const (
 )
 
 type GameConfig struct {
-	Buildings []Building `json:"buildings"`
+	Buildings []Building  `json:"buildings"`
+	Fleet     []FleetUnit `json:"fleet"`
 }
 
 type Building struct {
@@ -32,4 +33,20 @@ type UpgradeCost struct {
 	Metal   uint64 `json:"metal"`
 	Crystal uint64 `json:"crystal"`
 	Gas     uint64 `json:"gas"`
+}
+
+type FleetUnit struct {
+	Type             string       `json:"type"`
+	Speed            int          `json:"speed"`
+	Attack           int          `json:"attack"`
+	Defense          int          `json:"defense"`
+	CargoCapacity    int          `json:"cargo_capacity"`
+	BuildCost        ResourceCost `json:"build_cost"`
+	BuildTimeSeconds int          `json:"build_time_seconds"`
+}
+
+type ResourceCost struct {
+	Metal   int `json:"metal"`
+	Crystal int `json:"crystal"`
+	Gas     int `json:"gas"`
 }

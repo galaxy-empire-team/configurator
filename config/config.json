@@ -1,6 +1,6 @@
 {
 	"buildings": [
-		{"type": "metal_mine", "level": 0, "production_per_second": 10, "upgrade_cost": {"metal": 0, "crystal": 0, "gas": 0}, "upgrade_time_seconds": 0},
+		{"type": "metal_mine", "level": 0, "production_per_second": 10, "upgrade_cost": {"metal": 0, "crystal": 0, "gas": 0}, "upgrade_time_seconds": 5},
 		{"type": "metal_mine", "level": 1, "production_per_second": 30, "upgrade_cost": {"metal": 60, "crystal": 15, "gas": 0}, "upgrade_time_seconds": 15},
 		{"type": "metal_mine", "level": 2, "production_per_second": 100, "upgrade_cost": {"metal": 1200, "crystal": 400, "gas": 300}, "upgrade_time_seconds": 60},
 		{"type": "metal_mine", "level": 3, "production_per_second": 300, "upgrade_cost": {"metal": 6000, "crystal": 4000, "gas": 2000}, "upgrade_time_seconds": 240},
@@ -8,7 +8,7 @@
 		{"type": "metal_mine", "level": 5, "production_per_second": 3000, "upgrade_cost": {"metal": 150000, "crystal": 100000, "gas": 50000}, "upgrade_time_seconds": 960},
 
 
-		{"type": "crystal_mine", "level": 0, "production_per_second": 10, "upgrade_cost": {"metal": 0, "crystal": 0, "gas": 0}, "upgrade_time_seconds": 0},
+		{"type": "crystal_mine", "level": 0, "production_per_second": 10, "upgrade_cost": {"metal": 0, "crystal": 0, "gas": 0}, "upgrade_time_seconds": 5},
 		{"type": "crystal_mine", "level": 1, "production_per_second": 30, "upgrade_cost": {"metal": 60, "crystal": 15, "gas": 0}, "upgrade_time_seconds": 15},
 		{"type": "crystal_mine", "level": 2, "production_per_second": 100, "upgrade_cost": {"metal": 1200, "crystal": 400, "gas": 300}, "upgrade_time_seconds": 60},
 		{"type": "crystal_mine", "level": 3, "production_per_second": 300, "upgrade_cost": {"metal": 6000, "crystal": 4000, "gas": 2000}, "upgrade_time_seconds": 240},
@@ -16,7 +16,7 @@
 		{"type": "crystal_mine", "level": 5, "production_per_second": 3000, "upgrade_cost": {"metal": 150000, "crystal": 100000, "gas": 50000}, "upgrade_time_seconds": 960},
 
 
-		{"type": "gas_mine", "level": 0, "production_per_second": 10, "upgrade_cost": {"metal": 0, "crystal": 0, "gas": 0}, "upgrade_time_seconds": 0},
+		{"type": "gas_mine", "level": 0, "production_per_second": 10, "upgrade_cost": {"metal": 0, "crystal": 0, "gas": 0}, "upgrade_time_seconds": 5},
 		{"type": "gas_mine", "level": 1, "production_per_second": 30, "upgrade_cost": {"metal": 60, "crystal": 15, "gas": 0}, "upgrade_time_seconds": 15},
 		{"type": "gas_mine", "level": 2, "production_per_second": 100, "upgrade_cost": {"metal": 1200, "crystal": 400, "gas": 300}, "upgrade_time_seconds": 60},
 		{"type": "gas_mine", "level": 3, "production_per_second": 300, "upgrade_cost": {"metal": 6000, "crystal": 4000, "gas": 2000}, "upgrade_time_seconds": 240},
@@ -24,7 +24,7 @@
 		{"type": "gas_mine", "level": 5, "production_per_second": 3000, "upgrade_cost": {"metal": 150000, "crystal": 100000, "gas": 50000}, "upgrade_time_seconds": 960},
 
 
-		{"type": "space_port", "level": 0, "bonuses": {"fleet_build_speed": 1}, "upgrade_cost": {"metal": 0, "crystal": 0, "gas": 0}, "upgrade_time_seconds": 0},
+		{"type": "space_port", "level": 0, "bonuses": {"fleet_build_speed": 1}, "upgrade_cost": {"metal": 0, "crystal": 0, "gas": 0}, "upgrade_time_seconds": 5},
 		{"type": "space_port", "level": 1, "bonuses": {"fleet_build_speed": 1.8}, "upgrade_cost": {"metal": 500, "crystal": 200, "gas": 100}, "upgrade_time_seconds": 15},
 		{"type": "space_port", "level": 2, "bonuses": {"fleet_build_speed": 2.5}, "upgrade_cost": {"metal": 4000, "crystal": 2000, "gas": 1000}, "upgrade_time_seconds": 60},
 		{"type": "space_port", "level": 3, "bonuses": {"fleet_build_speed": 3.5}, "upgrade_cost": {"metal": 20000, "crystal": 10000, "gas": 5000}, "upgrade_time_seconds": 240},
@@ -32,7 +32,7 @@
 		{"type": "space_port", "level": 5, "bonuses": {"fleet_build_speed": 7}, "upgrade_cost": {"metal": 500000, "crystal": 250000, "gas": 125000}, "upgrade_time_seconds": 960},
 
 
-		{"type": "laboratory", "level": 0, "bonuses": {"research_speed": 1}, "upgrade_cost": {"metal": 0, "crystal": 0, "gas": 0}, "upgrade_time_seconds": 0},
+		{"type": "laboratory", "level": 0, "bonuses": {"research_speed": 1}, "upgrade_cost": {"metal": 0, "crystal": 0, "gas": 0}, "upgrade_time_seconds": 5},
 		{"type": "laboratory", "level": 1, "bonuses": {"research_speed": 1.8}, "upgrade_cost": {"metal": 500, "crystal": 200, "gas": 100}, "upgrade_time_seconds": 15},
 		{"type": "laboratory", "level": 2, "bonuses": {"research_speed": 2.5}, "upgrade_cost": {"metal": 4000, "crystal": 2000, "gas": 1000}, "upgrade_time_seconds": 60},
 		{"type": "laboratory", "level": 3, "bonuses": {"research_speed": 3.5}, "upgrade_cost": {"metal": 20000, "crystal": 10000, "gas": 5000}, "upgrade_time_seconds": 240},
@@ -40,11 +40,19 @@
 		{"type": "laboratory", "level": 5, "bonuses": {"research_speed": 7}, "upgrade_cost": {"metal": 500000, "crystal": 250000, "gas": 125000}, "upgrade_time_seconds": 960},
 
 
-		{"type": "robot_factory", "level": 0, "bonuses": {"building_speed": 1}, "upgrade_cost": {"metal": 0, "crystal": 0, "gas": 0}, "upgrade_time_seconds": 0},
+		{"type": "robot_factory", "level": 0, "bonuses": {"building_speed": 1}, "upgrade_cost": {"metal": 0, "crystal": 0, "gas": 0}, "upgrade_time_seconds": 5},
 		{"type": "robot_factory", "level": 1, "bonuses": {"building_speed": 1.8}, "upgrade_cost": {"metal": 500, "crystal": 200, "gas": 100}, "upgrade_time_seconds": 15},
 		{"type": "robot_factory", "level": 2, "bonuses": {"building_speed": 2.5}, "upgrade_cost": {"metal": 4000, "crystal": 2000, "gas": 1000}, "upgrade_time_seconds": 60},
 		{"type": "robot_factory", "level": 3, "bonuses": {"building_speed": 3.5}, "upgrade_cost": {"metal": 20000, "crystal": 10000, "gas": 5000}, "upgrade_time_seconds": 240},
 		{"type": "robot_factory", "level": 4, "bonuses": {"building_speed": 5}, "upgrade_cost": {"metal": 100000, "crystal": 50000, "gas": 25000}, "upgrade_time_seconds": 480},
 		{"type": "robot_factory", "level": 5, "bonuses": {"building_speed": 7}, "upgrade_cost": {"metal": 500000, "crystal": 250000, "gas": 125000}, "upgrade_time_seconds": 960}
+	],
+	"fleet": [
+		{"type": "fighter", "speed": 12, "attack": 1, "defense": 1, "cargo_capacity": 50, "build_cost": {"metal": 500,"crystal": 50,"gas": 100},"build_time_seconds": 30},
+		{"type": "corsair", "speed": 10, "attack": 3, "defense": 2, "cargo_capacity": 100, "build_cost": {"metal": 2000, "crystal": 300, "gas": 500}, "build_time_seconds": 120},
+		{"type": "destroyer", "speed": 8, "attack": 6, "defense": 5, "cargo_capacity": 300, "build_cost": {"metal": 10000, "crystal": 1500," gas": 2000}, "build_time_seconds": 600},
+		{"type": "cruiser",  "speed": 6, "attack": 15, "defense": 12, "cargo_capacity": 800, "build_cost": {"metal": 30000, "crystal": 8000, "gas": 10000}, "build_time_seconds": 5400},
+		{"type": "battleship", "speed": 4, "attack": 40, "defense": 30, "cargo_capacity": 2000, "build_cost": {"metal": 150000, "crystal": 50000, "gas": 60000}, "build_time_seconds": 28800},
+		{"type": "annihilator", "speed": 2, "attack": 100, "defense": 80, "cargo_capacity": 5000, "build_cost": {"metal": 1000000, "crystal": 35000, "gas": 400000}, "build_time_seconds": 604800}
 	]
 }
