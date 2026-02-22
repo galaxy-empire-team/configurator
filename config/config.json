@@ -54,5 +54,16 @@
 		{"type": "cruiser",  "speed": 6, "attack": 15, "defense": 12, "cargo_capacity": 800, "build_cost": {"metal": 30000, "crystal": 8000, "gas": 10000}, "build_time_seconds": 5400},
 		{"type": "battleship", "speed": 4, "attack": 40, "defense": 30, "cargo_capacity": 2000, "build_cost": {"metal": 150000, "crystal": 50000, "gas": 60000}, "build_time_seconds": 28800},
 		{"type": "annihilator", "speed": 2, "attack": 100, "defense": 80, "cargo_capacity": 5000, "build_cost": {"metal": 1000000, "crystal": 35000, "gas": 400000}, "build_time_seconds": 604800}
+	],
+	"missions": [
+		{"type": "attack"},
+		{"type": "transport"},
+		{"type": "colonize"}
+	],
+	"notifications": [
+		{"type": "attack"},
+		{"type": "transport"},
+		{"type": "colonize"},
+		{"type": "return"}	
 	]
 }

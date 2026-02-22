@@ -10,8 +10,10 @@ const (
 )
 
 type GameConfig struct {
-	Buildings []Building  `json:"buildings"`
-	Fleet     []FleetUnit `json:"fleet"`
+	Buildings         []Building         `json:"buildings"`
+	Fleet             []FleetUnit        `json:"fleet"`
+	MissionTypes      []MissionType      `json:"missions"`
+	NotificationTypes []NotificationType `json:"notifications"`
 }
 
 type Building struct {
@@ -49,4 +51,12 @@ type ResourceCost struct {
 	Metal   int `json:"metal"`
 	Crystal int `json:"crystal"`
 	Gas     int `json:"gas"`
+}
+
+type MissionType struct {
+	Type string `json:"type"`
+}
+
+type NotificationType struct {
+	Type string `json:"type"`
 }

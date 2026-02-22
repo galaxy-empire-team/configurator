@@ -37,6 +37,20 @@ func (c *Configurator) Run(ctx context.Context) error {
 
 	c.logger.Info("Fleet upserted successfully")
 
+	err = c.upsertMissions(ctx, gameConfig)
+	if err != nil {
+		return fmt.Errorf("upsertMissions(): %w", err)
+	}
+
+	c.logger.Info("Missions upserted successfully")
+
+	err = c.upsertNotifications(ctx, gameConfig)
+	if err != nil {
+		return fmt.Errorf("upsertNotifications(): %w", err)
+	}
+
+	c.logger.Info("Notifications upserted successfully")
+
 	c.logger.Info("Configurator finished")
 
 	return nil
@@ -154,6 +168,64 @@ func (c *Configurator) upsertFleet(ctx context.Context, cfg GameConfig) (err err
 			fleetUnit.BuildCost.Gas,
 			fleetUnit.BuildTimeSeconds,
 		)
+	}
+
+	br := c.db.SendBatch(ctx, batch)
+	defer br.Close()
+
+	for i := range batch.Len() {
+		_, err := br.Exec()
+		if err != nil {
+			return fmt.Errorf("br.Exec(idx: %d): %w", i, err)
+		}
+	}
+
+	return nil
+}
+
+func (c *Configurator) upsertMissions(ctx context.Context, cfg GameConfig) (err error) {
+	const upsertMissionTypesQuery = `
+		INSERT INTO session_beta.missions (
+			mission_type
+		) VALUES (
+		 	$1        --- mission_type
+		)
+		ON CONFLICT (mission_type) DO NOTHING;
+	`
+
+	batch := &pgx.Batch{}
+
+	for _, missionType := range cfg.MissionTypes {
+		batch.Queue(upsertMissionTypesQuery, missionType.Type)
+	}
+
+	br := c.db.SendBatch(ctx, batch)
+	defer br.Close()
+
+	for i := range batch.Len() {
+		_, err := br.Exec()
+		if err != nil {
+			return fmt.Errorf("br.Exec(idx: %d): %w", i, err)
+		}
+	}
+
+	return nil
+}
+
+func (c *Configurator) upsertNotifications(ctx context.Context, cfg GameConfig) (err error) {
+	const upsertNotificationTypesQuery = `
+		INSERT INTO session_beta.notifications (
+			notification_type
+		) VALUES (
+		 	$1        --- notification_type
+		)
+		ON CONFLICT (notification_type) DO NOTHING;
+	`
+
+	batch := &pgx.Batch{}
+
+	for _, notificationType := range cfg.NotificationTypes {
+		batch.Queue(upsertNotificationTypesQuery, notificationType.Type)
 	}
 
 	br := c.db.SendBatch(ctx, batch)
