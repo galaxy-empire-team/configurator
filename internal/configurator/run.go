@@ -51,6 +51,13 @@ func (c *Configurator) Run(ctx context.Context) error {
 
 	c.logger.Info("Notifications upserted successfully")
 
+	err = c.upsertResearches(ctx, gameConfig)
+	if err != nil {
+		return fmt.Errorf("upsertResearches(): %w", err)
+	}
+
+	c.logger.Info("Researches upserted successfully")
+
 	c.logger.Info("Configurator finished")
 
 	return nil
@@ -58,7 +65,7 @@ func (c *Configurator) Run(ctx context.Context) error {
 
 func (c *Configurator) upsertBuildings(ctx context.Context, cfg GameConfig) (err error) {
 	const upsertQuery = `
-		INSERT INTO session_beta.buildings (
+		INSERT INTO session_beta.s_buildings (
 			building_type,
 			level, 
 			metal_cost,
@@ -122,7 +129,7 @@ func (c *Configurator) upsertBuildings(ctx context.Context, cfg GameConfig) (err
 
 func (c *Configurator) upsertFleet(ctx context.Context, cfg GameConfig) (err error) {
 	const upsertFleetQuery = `
-		INSERT INTO session_beta.fleet (
+		INSERT INTO session_beta.s_fleet (
 			ship_type,
 			attack, 
 			defense,
@@ -183,9 +190,68 @@ func (c *Configurator) upsertFleet(ctx context.Context, cfg GameConfig) (err err
 	return nil
 }
 
+func (c *Configurator) upsertResearches(ctx context.Context, cfg GameConfig) (err error) {
+	const upsertResearchesQuery = `
+		INSERT INTO session_beta.s_researches (
+			research_type,
+			level,
+			metal_cost,
+			crystal_cost,
+			gas_cost,
+			research_time_s,
+			bonuses
+		) VALUES (
+		 	$1,        --- research_type
+			$2,        --- level
+			$3,        --- metal_cost
+			$4,        --- crystal_cost
+			$5,        --- gas_cost
+			$6,        --- research_time_s
+			$7::jsonb  --- bonuses
+		)
+		ON CONFLICT (research_type, level) DO UPDATE SET
+			metal_cost = EXCLUDED.metal_cost,
+			crystal_cost = EXCLUDED.crystal_cost,
+			gas_cost = EXCLUDED.gas_cost,
+			research_time_s = EXCLUDED.research_time_s,
+			bonuses = EXCLUDED.bonuses;	
+	`
+
+	batch := &pgx.Batch{}
+
+	for _, research := range cfg.Researches {
+		bonusesJSON, err := json.Marshal(research.Bonuses)
+		if err != nil {
+			return fmt.Errorf("json.Marshal(): %w", err)
+		}
+
+		batch.Queue(upsertResearchesQuery,
+			research.Type,
+			research.Level,
+			research.ResearchCose.Metal,
+			research.ResearchCose.Crystal,
+			research.ResearchCose.Gas,
+			research.ResearchTimeSeconds,
+			bonusesJSON,
+		)
+	}
+
+	br := c.db.SendBatch(ctx, batch)
+	defer br.Close()
+
+	for i := range batch.Len() {
+		_, err := br.Exec()
+		if err != nil {
+			return fmt.Errorf("br.Exec(idx: %d): %w", i, err)
+		}
+	}
+
+	return nil
+}
+
 func (c *Configurator) upsertMissions(ctx context.Context, cfg GameConfig) (err error) {
 	const upsertMissionTypesQuery = `
-		INSERT INTO session_beta.missions (
+		INSERT INTO session_beta.s_missions (
 			mission_type
 		) VALUES (
 		 	$1        --- mission_type
@@ -214,7 +280,7 @@ func (c *Configurator) upsertMissions(ctx context.Context, cfg GameConfig) (err 
 
 func (c *Configurator) upsertNotifications(ctx context.Context, cfg GameConfig) (err error) {
 	const upsertNotificationTypesQuery = `
-		INSERT INTO session_beta.notifications (
+		INSERT INTO session_beta.s_notifications (
 			notification_type
 		) VALUES (
 		 	$1        --- notification_type
