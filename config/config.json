@@ -116,14 +116,13 @@
 		{"type": "scout", "speed": 100, "attack": 0, "defense": 0, "cargo_capacity": 500, "build_cost": {"metal": 1000, "crystal": 500, "gas": 200}, "build_time_seconds": 600}
 	],
 	"researches": [
-		{"type": "colonize_technology", "level": 1, "bonuses": {"availiable_colonize_count": 1}, "research_cost": {"metal": 3600, "crystal": 7200, "gas": 12000}, "research_time_seconds": 120},
-		{"type": "colonize_technology", "level": 2, "bonuses": {"availiable_colonize_count": 2}, "research_cost": {"metal": 13500, "crystal": 27000, "gas": 45000}, "research_time_seconds": 240},
-		{"type": "colonize_technology", "level": 3, "bonuses": {"availiable_colonize_count": 3}, "research_cost": {"metal": 93000, "crystal": 186000, "gas": 310000}, "research_time_seconds": 960},
-		{"type": "colonize_technology", "level": 4, "bonuses": {"availiable_colonize_count": 4}, "research_cost": {"metal": 360000, "crystal": 720000, "gas": 1200000}, "research_time_seconds": 1500},
-		{"type": "colonize_technology", "level": 5, "bonuses": {"availiable_colonize_count": 5}, "research_cost": {"metal": 2400000, "crystal": 4800000, "gas": 8000000}, "research_time_seconds": 3500},
-		{"type": "colonize_technology", "level": 6, "bonuses": {"availiable_colonize_count": 6}, "research_cost": {"metal": 18000000, "crystal": 36000000, "gas": 60000000}, "research_time_seconds": 8800},
-		{"type": "colonize_technology", "level": 7, "bonuses": {"availiable_colonize_count": 7}, "research_cost": {"metal": 66000000, "crystal": 132000000, "gas": 220000000}, "research_time_seconds": 60000},
-		{"type": "colonize_technology", "level": 8, "bonuses": {"availiable_colonize_count": 8}, "research_cost": {"metal": 450000000, "crystal": 900000000, "gas": 1500000000}, "research_time_seconds": 250000},
+		{"type": "colonize_technology", "level": 1, "bonuses": {"availiable_colonize_count": 2}, "research_cost": {"metal": 13500, "crystal": 27000, "gas": 45000}, "research_time_seconds": 240},
+		{"type": "colonize_technology", "level": 2, "bonuses": {"availiable_colonize_count": 3}, "research_cost": {"metal": 93000, "crystal": 186000, "gas": 310000}, "research_time_seconds": 960},
+		{"type": "colonize_technology", "level": 3, "bonuses": {"availiable_colonize_count": 4}, "research_cost": {"metal": 360000, "crystal": 720000, "gas": 1200000}, "research_time_seconds": 1500},
+		{"type": "colonize_technology", "level": 4, "bonuses": {"availiable_colonize_count": 5}, "research_cost": {"metal": 2400000, "crystal": 4800000, "gas": 8000000}, "research_time_seconds": 3500},
+		{"type": "colonize_technology", "level": 5, "bonuses": {"availiable_colonize_count": 6}, "research_cost": {"metal": 18000000, "crystal": 36000000, "gas": 60000000}, "research_time_seconds": 8800},
+		{"type": "colonize_technology", "level": 6, "bonuses": {"availiable_colonize_count": 7}, "research_cost": {"metal": 66000000, "crystal": 132000000, "gas": 220000000}, "research_time_seconds": 60000},
+		{"type": "colonize_technology", "level": 7, "bonuses": {"availiable_colonize_count": 8}, "research_cost": {"metal": 450000000, "crystal": 900000000, "gas": 1500000000}, "research_time_seconds": 250000},
 
 		{"type": "industrial_technology", "level": 1, "bonuses": {"resource_gain": 1}, "research_cost": {"metal": 1800, "crystal": 3600, "gas": 6000}, "research_time_seconds": 5},
 		{"type": "industrial_technology", "level": 2, "bonuses": {"resource_gain": 1.5}, "research_cost": {"metal": 3600, "crystal": 7200, "gas": 12000}, "research_time_seconds": 15},
