@@ -105,7 +105,7 @@
 	"fleet": [
 		{"type": "fighter", "speed": 12, "attack": 1, "defense": 1, "cargo_capacity": 50, "build_cost": {"metal": 500,"crystal": 50,"gas": 100},"build_time_seconds": 30},
 		{"type": "corsair", "speed": 10, "attack": 3, "defense": 2, "cargo_capacity": 100, "build_cost": {"metal": 2000, "crystal": 300, "gas": 500}, "build_time_seconds": 120},
-		{"type": "destroyer", "speed": 8, "attack": 6, "defense": 5, "cargo_capacity": 300, "build_cost": {"metal": 10000, "crystal": 1500," gas": 2000}, "build_time_seconds": 600},
+		{"type": "destroyer", "speed": 8, "attack": 6, "defense": 5, "cargo_capacity": 300, "build_cost": {"metal": 10000, "crystal": 1500,"gas": 2000}, "build_time_seconds": 600},
 		{"type": "cruiser",  "speed": 6, "attack": 15, "defense": 12, "cargo_capacity": 800, "build_cost": {"metal": 30000, "crystal": 8000, "gas": 10000}, "build_time_seconds": 5400},
 		{"type": "battleship", "speed": 3, "attack": 40, "defense": 30, "cargo_capacity": 2000, "build_cost": {"metal": 150000, "crystal": 50000, "gas": 60000}, "build_time_seconds": 28800},
 		{"type": "annihilator", "speed": 2, "attack": 100, "defense": 80, "cargo_capacity": 5000, "build_cost": {"metal": 1000000, "crystal": 35000, "gas": 400000}, "build_time_seconds": 604800},
@@ -116,6 +116,7 @@
 		{"type": "scout", "speed": 100, "attack": 0, "defense": 0, "cargo_capacity": 500, "build_cost": {"metal": 1000, "crystal": 500, "gas": 200}, "build_time_seconds": 600}
 	],
 	"researches": [
+		{"type": "colonize_technology", "level": 0, "bonuses": {"availiable_colonize_count": 1}, "research_cost": {"metal": 0, "crystal": 0, "gas": 0}, "research_time_seconds": 0},
 		{"type": "colonize_technology", "level": 1, "bonuses": {"availiable_colonize_count": 2}, "research_cost": {"metal": 13500, "crystal": 27000, "gas": 45000}, "research_time_seconds": 240},
 		{"type": "colonize_technology", "level": 2, "bonuses": {"availiable_colonize_count": 3}, "research_cost": {"metal": 93000, "crystal": 186000, "gas": 310000}, "research_time_seconds": 960},
 		{"type": "colonize_technology", "level": 3, "bonuses": {"availiable_colonize_count": 4}, "research_cost": {"metal": 360000, "crystal": 720000, "gas": 1200000}, "research_time_seconds": 1500},
@@ -124,6 +125,7 @@
 		{"type": "colonize_technology", "level": 6, "bonuses": {"availiable_colonize_count": 7}, "research_cost": {"metal": 66000000, "crystal": 132000000, "gas": 220000000}, "research_time_seconds": 60000},
 		{"type": "colonize_technology", "level": 7, "bonuses": {"availiable_colonize_count": 8}, "research_cost": {"metal": 450000000, "crystal": 900000000, "gas": 1500000000}, "research_time_seconds": 250000},
 
+		{"type": "industrial_technology", "level": 0, "bonuses": {"resource_gain": 0}, "research_cost": {"metal": 0, "crystal": 0, "gas": 0}, "research_time_seconds": 0},
 		{"type": "industrial_technology", "level": 1, "bonuses": {"resource_gain": 1}, "research_cost": {"metal": 1800, "crystal": 3600, "gas": 6000}, "research_time_seconds": 5},
 		{"type": "industrial_technology", "level": 2, "bonuses": {"resource_gain": 1.5}, "research_cost": {"metal": 3600, "crystal": 7200, "gas": 12000}, "research_time_seconds": 15},
 		{"type": "industrial_technology", "level": 3, "bonuses": {"resource_gain": 2.3}, "research_cost": {"metal": 7200, "crystal": 14400, "gas": 24000}, "research_time_seconds": 60},
@@ -141,6 +143,7 @@
 		{"type": "industrial_technology", "level": 15, "bonuses": {"resource_gain": 180}, "research_cost": {"metal": 164700000, "crystal": 329400000, "gas": 549000000}, "research_time_seconds": 110000},
 		{"type": "industrial_technology", "level": 16, "bonuses": {"resource_gain": 250}, "research_cost": {"metal": 450000000, "crystal": 900000000, "gas": 1500000000}, "research_time_seconds": 250000},
 
+		{"type": "logistics", "level": 0, "bonuses": {"fleet_cost_reduce": 0}, "research_cost": {"metal": 0, "crystal": 0, "gas": 0}, "research_time_seconds": 0},
 		{"type": "logistics", "level": 1, "bonuses": {"fleet_cost_reduce": 1}, "research_cost": {"metal": 1800, "crystal": 3600, "gas": 6000}, "research_time_seconds": 5},
 		{"type": "logistics", "level": 2, "bonuses": {"fleet_cost_reduce": 1.4}, "research_cost": {"metal": 3600, "crystal": 7200, "gas": 12000}, "research_time_seconds": 15},
 		{"type": "logistics", "level": 3, "bonuses": {"fleet_cost_reduce": 2}, "research_cost": {"metal": 7200, "crystal": 14400, "gas": 24000}, "research_time_seconds": 60},
@@ -158,6 +161,7 @@
 		{"type": "logistics", "level": 15, "bonuses": {"fleet_cost_reduce": 45.6}, "research_cost": {"metal": 164700000, "crystal": 329400000, "gas": 549000000}, "research_time_seconds": 110000},
 		{"type": "logistics", "level": 16, "bonuses": {"fleet_cost_reduce": 60}, "research_cost": {"metal": 450000000, "crystal": 900000000, "gas": 1500000000}, "research_time_seconds": 250000},
 
+		{"type": "construction_optimization", "level": 0, "bonuses": {"fleet_construct_time_reduce": 0}, "research_cost": {"metal": 0, "crystal": 0, "gas": 0}, "research_time_seconds": 0},
 		{"type": "construction_optimization", "level": 1, "bonuses": {"fleet_construct_time_reduce": 1}, "research_cost": {"metal": 1800, "crystal": 3600, "gas": 6000}, "research_time_seconds": 5},
 		{"type": "construction_optimization", "level": 2, "bonuses": {"fleet_construct_time_reduce": 1.4}, "research_cost": {"metal": 3600, "crystal": 7200, "gas": 12000}, "research_time_seconds": 15},
 		{"type": "construction_optimization", "level": 3, "bonuses": {"fleet_construct_time_reduce": 2.1}, "research_cost": {"metal": 7200, "crystal": 14400, "gas": 24000}, "research_time_seconds": 60},
@@ -175,6 +179,7 @@
 		{"type": "construction_optimization", "level": 15, "bonuses": {"fleet_construct_time_reduce": 53.8}, "research_cost": {"metal": 164700000, "crystal": 329400000, "gas": 549000000}, "research_time_seconds": 110000},
 		{"type": "construction_optimization", "level": 16, "bonuses": {"fleet_construct_time_reduce": 70}, "research_cost": {"metal": 450000000, "crystal": 900000000, "gas": 1500000000}, "research_time_seconds": 250000},
 
+		{"type": "planet_defense", "level": 0, "bonuses": {"defense_power": 0.1}, "research_cost": {"metal": 0, "crystal": 0, "gas": 0}, "research_time_seconds": 0},
 		{"type": "planet_defense", "level": 1, "bonuses": {"defense_power": 1}, "research_cost": {"metal": 1800, "crystal": 3600, "gas": 6000}, "research_time_seconds": 5},
 		{"type": "planet_defense", "level": 2, "bonuses": {"defense_power": 1.3}, "research_cost": {"metal": 3600, "crystal": 7200, "gas": 12000}, "research_time_seconds": 15},
 		{"type": "planet_defense", "level": 3, "bonuses": {"defense_power": 2.1}, "research_cost": {"metal": 7200, "crystal": 14400, "gas": 24000}, "research_time_seconds": 60},
@@ -193,6 +198,7 @@
 		{"type": "planet_defense", "level": 16, "bonuses": {"defense_power": 90}, "research_cost": {"metal": 450000000, "crystal": 900000000, "gas": 1500000000}, "research_time_seconds": 250000},
 
 
+		{"type": "weapon_tech", "level": 0, "bonuses": {"attack_power": 0.0}, "research_cost": {"metal": 0, "crystal": 0, "gas": 0}, "research_time_seconds": 0},
 		{"type": "weapon_tech", "level": 1, "bonuses": {"attack_power": 1}, "research_cost": {"metal": 1800, "crystal": 3600, "gas": 6000}, "research_time_seconds": 5},
 		{"type": "weapon_tech", "level": 2, "bonuses": {"attack_power": 1.4}, "research_cost": {"metal": 3600, "crystal": 7200, "gas": 12000}, "research_time_seconds": 15},
 		{"type": "weapon_tech", "level": 3, "bonuses": {"attack_power": 2.1}, "research_cost": {"metal": 7200, "crystal": 14400, "gas": 24000}, "research_time_seconds": 60},
@@ -210,6 +216,7 @@
 		{"type": "weapon_tech", "level": 15, "bonuses": {"attack_power": 53.8}, "research_cost": {"metal": 164700000, "crystal": 329400000, "gas": 549000000}, "research_time_seconds": 110000},
 		{"type": "weapon_tech", "level": 16, "bonuses": {"attack_power": 70}, "research_cost": {"metal": 450000000, "crystal": 900000000, "gas": 1500000000}, "research_time_seconds": 250000},
 
+		{"type": "armor_tech", "level": 0, "bonuses": {"armor_strength": 0}, "research_cost": {"metal": 0, "crystal": 0, "gas": 0}, "research_time_seconds": 0},
 		{"type": "armor_tech", "level": 1, "bonuses": {"armor_strength": 1}, "research_cost": {"metal": 1800, "crystal": 3600, "gas": 6000}, "research_time_seconds": 5},
 		{"type": "armor_tech", "level": 2, "bonuses": {"armor_strength": 1.4}, "research_cost": {"metal": 3600, "crystal": 7200, "gas": 12000}, "research_time_seconds": 15},
 		{"type": "armor_tech", "level": 3, "bonuses": {"armor_strength": 2.1}, "research_cost": {"metal": 7200, "crystal": 14400, "gas": 24000}, "research_time_seconds": 60},
@@ -227,6 +234,7 @@
 		{"type": "armor_tech", "level": 15, "bonuses": {"armor_strength": 53.8}, "research_cost": {"metal": 164700000, "crystal": 329400000, "gas": 549000000}, "research_time_seconds": 110000},
 		{"type": "armor_tech", "level": 16, "bonuses": {"armor_strength": 70}, "research_cost": {"metal": 450000000, "crystal": 900000000, "gas": 1500000000}, "research_time_seconds": 250000},
 
+		{"type": "combat_protocols", "level": 0, "bonuses": {"attack_deffence_power": 0}, "research_cost": {"metal": 0, "crystal": 0, "gas": 0}, "research_time_seconds": 0},
 		{"type": "combat_protocols", "level": 1, "bonuses": {"attack_deffence_power": 1}, "research_cost": {"metal": 1800, "crystal": 3600, "gas": 6000}, "research_time_seconds": 5},
 		{"type": "combat_protocols", "level": 2, "bonuses": {"attack_deffence_power": 1.4}, "research_cost": {"metal": 3600, "crystal": 7200, "gas": 12000}, "research_time_seconds": 15},
 		{"type": "combat_protocols", "level": 3, "bonuses": {"attack_deffence_power": 2}, "research_cost": {"metal": 7200, "crystal": 14400, "gas": 24000}, "research_time_seconds": 60},
@@ -244,6 +252,7 @@
 		{"type": "combat_protocols", "level": 15, "bonuses": {"attack_deffence_power": 45.6}, "research_cost": {"metal": 164700000, "crystal": 329400000, "gas": 549000000}, "research_time_seconds": 110000},
 		{"type": "combat_protocols", "level": 16, "bonuses": {"attack_deffence_power": 60}, "research_cost": {"metal": 450000000, "crystal": 900000000, "gas": 1500000000}, "research_time_seconds": 250000},
 
+		{"type": "spy_technology", "level": 0, "bonuses": {"success_spy_chance": 0}, "research_cost": {"metal": 0, "crystal": 0, "gas": 0}, "research_time_seconds": 0},
 		{"type": "spy_technology", "level": 1, "bonuses": {"success_spy_chance": 20}, "research_cost": {"metal": 1800, "crystal": 3600, "gas": 6000}, "research_time_seconds": 5},
 		{"type": "spy_technology", "level": 2, "bonuses": {"success_spy_chance": 23}, "research_cost": {"metal": 3600, "crystal": 7200, "gas": 12000}, "research_time_seconds": 15},
 		{"type": "spy_technology", "level": 3, "bonuses": {"success_spy_chance": 25}, "research_cost": {"metal": 7200, "crystal": 14400, "gas": 24000}, "research_time_seconds": 60},
